@@ -6,6 +6,8 @@ ________________________________________________________
 
 ## Название: Приюта для собак: "Лучшие друзья"
 
+[![alt text](http://url/to/images/Для GitHub.png)](https://myoctocat.com/assets/images/base-octocat.svg)
+
 * 6 файлов в формате HTML
 * 2 файлов в формате JS
 * 1 файл в формате PHP
