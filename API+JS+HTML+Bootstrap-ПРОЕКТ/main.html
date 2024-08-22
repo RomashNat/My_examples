@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="icon" type="image/x-icon" href="images/favicon_dog.png">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://api-maps.yandex.ru/v3/?apikey=78c1bef4-0d49-4f14-a337-b6e43451c95f&lang=ru_RU"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+   
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <a href="main.html">
+        <img src="images/icon.png"  height="80px" width="80px">
+      </a>
+        <a class="navbar-brand" href="main.html">Приют для собак: "Лучшие друзья"</a>
+        <a class="nav-link active" aria-current="page"style="margin-right: 20%" href="index.html">Посмотреть на наших питомцев</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> Приют для собак: "Лучшие друзья"</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-cu5rrent="page" href="main.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.html">Где нас искать</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Помощь</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="help.html">Нужды приюта</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="About.html">О приюте</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="volonter.html">Стать волонтером</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+           <form id="form" method="post" action="php/form.php">
+              <h5>Регистрация</h5>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"/>
+                <small id="emailHelp" class="form-text text-muted"></small>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="inputPassword"/>
+
+                <div class="valid-feedback"></div>
+              </div>
+              <div class="form-group form-check">
+                <input style="margin-top: 5%" type="checkbox" class="form-check-input"  id="formSend" />
+                <label class="form-check-label" for="exampleCheck1" style="margin-top: 5%;">Подтвердить данные</label>
+              </div>
+              <button type="submit" class="btn btn-outline-success" style="margin-left: 1%; margin-top: 0.5em;">Отправить</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <h1 style="margin-top: 3em">Приходи к нам!</h1>
+
+    <div class="base"></div>
+    <div class="container">
+      <button type="button" class="btn btn-outline-success" id="openpopup" style="margin-left: 45%; box-shadow: #3a7999">Чат поддержки
+      </button>
+    </div>
+
+    <div id="popup" class="modal">
+      <div class="content">
+        <h2 style="margin-left: 5%;">Присоединяйтесь к нам в WhatsApp и Telegram</h2>
+        <div class="btn-container mt-5">
+          <button type="button" class="btn btn-secondary" id="deleteBtn"> Не сейчас</button>
+          <button type="button" class="btn btn-outline-success" id="openpopup2">Вступить </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup2" class="modal">
+      <div class="content">
+        <h2 style="margin-left: 1%;">Ссылки на группы:</h2>
+        <div class="btn-container mt-5">
+          <a href="https://chat.whatsapp.com/C94SUYjUdm1C7dSjiimSB8" class="bi bi-whatsapp" style="color: rgb(17, 141, 100);">WhatsApp</a>
+          <a href="https://t.me/+jAV6eJt8C2RlNmEy" class="bi bi-telegram pe-3" style="color: rgb(77, 125, 228); ">Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-xl" style="margin-top: 2em; max-width: 825px; max-height: 1000px" >
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="1500">
+            <img src="images/dogs.png" class="d-block w-100" style="border-radius: 25px" alt="..."/>
+          </div>
+          <div class="carousel-item" data-bs-interval="1500">
+            <img src="images/boy.png" class="d-block w-100" style="border-radius: 25px" alt="..."/>
+          </div>
+          <div class="carousel-item">
+            <img src="images/Foto3.jpg" class="d-block w-100" style="border-radius: 25px" alt="..."/>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const chatBtn = document.querySelector("#openpopup");
+      const popupChat = document.querySelector("#popup");
+
+      chatBtn.addEventListener("click", () => {
+        popupChat.style.display = "block";
+      });
+
+      const openPopupBtn2 = document.querySelector("#openpopup2");
+      const popup2 = document.querySelector("#popup2");
+
+      openPopupBtn2.addEventListener("click", () => {
+        popup2.style.display = "block";
+        popupChat.style.display = "none";
+      });
+
+      const cancle = document.querySelector("#deleteBtn");
+      cancle.addEventListener("click", () => {
+        popupChat.style.display = "none";
+        popup2.style.display = "none";
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target == popupChat) {
+          popupChat.style.display = "none";
+        } else if (event.target == popup2) {
+          popup2.style.display = "none";
+        }
+      });
+    </script>
+
+    <script>
+      $(".carousel .carousel-item").each(function () {
+        var minPerSlide = 3;
+        var next = $(this).next();
+        if (!next.length) {
+          next = $(this).siblings(":first");
+        }
+        next.children(":first-child").clone().appendTo($(this));
+
+        for (var i = 0; i < minPerSlide; i++) {
+          next = next.next();
+          if (!next.length) {
+            next = $(this).siblings(":first");
+          }
+
+          next.children(":first-child").clone().appendTo($(this));
+        }
+      });
+    </script>
+
+    <footer class="mt-5 p-5">
+
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <p> © Приют Троицка, 2015 - 2024. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/validator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="icon" type="image/x-icon" href="images/favicon_dog.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Наши питомцы</title>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <a href="main.html">
+          <img src="images/icon.png"  height="80px" width="80px">
+        </a>
+        <a class="navbar-brand" href="main.html">Приют для собак: "Лучшие друзья"</a>
+        <a class="nav-link active" aria-current="page" style="margin-right: 20%"
+          href="index.html">Посмотреть на наших питомцев</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Приют для собак: "Лучшие друзья"</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-cu5rrent="page" href="main.html">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.html">Где нас искать</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Помощь</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="help.html">Нужды приюта</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="About.html">О приюте</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="volonter.html">Стать волонтером</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form id="form" method="post" action="php/form.php">
+              <h5>Регистрация</h5>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"/>
+                <small id="emailHelp" class="form-text text-muted"></small>
+                
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="inputPassword"/>
+
+                <div class="valid-feedback"></div>
+              </div>
+              <div class="form-group form-check">
+                <input style="margin-top: 5%" type="checkbox" class="form-check-input"  id="formSend" />
+                <label class="form-check-label" for="exampleCheck1" style="margin-top: 5%;">Подтвердить данные</label>
+              </div>
+              <button type="submit" class="btn btn-outline-success" style="margin-left: 1%; margin-top: 0.5em;">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <h1 style="margin-top: 3em">Выбери себе друга,они такие забавные!</h1>
+    </div>
+    <div class="container">
+      <div id="search1" >
+        <form onsubmit="f_search(event)">
+          <div class="row g-5">
+            <div class="col-8 col-sm-8">
+              <input id="str1" type="text" class="form-control" placeholder="введите имя"/>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-outline-success  w-75">Поиск по имени
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <nav class="pagination justify-content-center" aria-label="Page navigation example" >
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Предыдущая</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+      </ul>
+    </nav>
+
+ <footer class="mt-5 p-5">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <p> © Приют Троицка, 2015 - 2024. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script> takeInfo();</script>
+    <script src="js/validator.js"></script>
+  </body>
+</html>

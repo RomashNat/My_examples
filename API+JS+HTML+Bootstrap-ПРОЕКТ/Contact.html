@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="icon" type="image/x-icon" href="images/favicon_dog.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=78c1bef4-0d49-4f14-a337-b6e43451c95f&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a href="main.html">
+            <img src="images/icon.png"  height="80px" width="80px">
+          </a>
+          <a class="navbar-brand" href="main.html">Приют для собак: "Лучшие друзья"</a>
+          <a class="nav-link active" aria-current="page" style="margin-right: 20%" href="index.html">Посмотреть на наших питомцев</a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Приют для собак: "Лучшие друзья"</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="main.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Где нас искать</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Помощь</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="help.html">Нужды приюта</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="About.html">О приюте</a>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="volonter.html">Стать волонтером</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <form id="form" method="post" action="php/form.php">
+                <h5>Регистрация</h5>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
+                  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"/>
+                  <small id="emailHelp" class="form-text text-muted"></small>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                  <input type="password" class="form-control" id="inputPassword"/>
+  
+                  <div class="valid-feedback"></div>
+                </div>
+                <div class="form-group form-check">
+                  <input style="margin-top: 5%" type="checkbox" class="form-check-input"  id="formSend" />
+                  <label class="form-check-label" for="exampleCheck1" style="margin-top: 5%;">Подтвердить данные</label>
+                </div>
+                <button type="submit" class="btn btn-outline-success" style="margin-left: 1%; margin-top: 0.5em;">Отправить</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="justify-content-around">
+      <h1 class="text-center" style="margin-top: 3em">Приют</h1>
+      <div class="wrapper row column-gap-3 mt-5 justify-content-between mx-4" style="font-size: 1.5rem">
+        <div>
+          <h2 class="p-3" style="margin-left: 20px;">Новая Москва, г.Троицк</h2>
+          <div class="mt-3 p-3" id="adress">
+            <p>Адрес: Морская улица, 21</p>
+            <p>08:00 - 21:00</p>
+            <p>Без выходных</p>
+          </div>
+          <div class="mt-3 p-3" id="phone">
+            <p>+7(495)111-11-11</p>
+            <p><i class="bi bi-telegram pe-3"></i>Telegram</p>
+            <p><i class="bi bi-whatsapp"></i>WhatsApp</p>
+          </div>
+          <button id="mapBtn1" class="btn btn-outline-success" style="margin-left: 40px;" onclick="changeView()">Посмотреть на карте</button>
+     </div>
+        <div id="col1" class="" style="border-radius: 25px;">
+          <img id="img1" class="disp" src="images/priut2.gif" style="border-radius: 25px" width="1100px" height="700px"/>
+          <div id="map" class="disp_none" style="width: 1150px; height: 700px;"></div>
+        </div>
+      </div>
+  
+    </div>
+    
+<footer class="mt-5 p-5">
+
+  <div class="container text-center; justify-content-around">
+    <div class="row">
+      <div class="col">
+        <p> © Приют Троицка, 2015 - 2024. Все права защищены.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
