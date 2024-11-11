@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div
+        {
+            margin-top: 20px;
+        }
+
+        label
+        {
+            margin: 10px;
+            font-size: 2rem;
+        }
+
+        p
+        {
+            margin: 10px;
+            font-size: 2rem;
+        }
+
+        h1
+        {
+            margin: 10px;
+            color: rgb(165, 42, 138);
+            font-size: 4rem;
+        }
+        span[id="res"]
+        {
+            color: brown;
+            font-size: 3rem;
+        }
+        span[id="res2"]
+        {
+            color: brown;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Калькулятор
+    </h1>
+    <div>
+        <label for="oper1">Введите первое число</label>
+        <input id="oper1" type="number" value="0" onchange="calc()">
+    </div>
+    <div>
+        <label for="oper2">Введите второе число</label>
+        <input id="oper2" type="number" value="0" onchange="calc()">
+    </div>
+    <div>
+        <select id = "operation" onchange="calc()">
+            <option>Сложить</option>
+            <option>Вычесть</option>
+            <option>Умножить</option>
+            <option>Разделить</option>
+            <option>Возвести в степень</option>
+            <option>Корень из первого числа</option>
+            <option>Корень из второго числа</option>
+        </select>
+    </div>
+    <p>Результат:<span id="res"></span></p>
+    <h1>
+        Календарь
+    </h1>
+    <!--
+    <div>
+        <label for="name">Введите имя</label>
+        <input id="firstName" type="text" value="">
+    </div>
+    <div>
+        <label for="lastName">Введите фамилию</label>
+        <input id="lastName" type="text" value="">
+    </div>
+-->
+    <div>
+        <label for="birthday1">дата №1</label>
+        <input id="birthday1" type="date" value="">
+    </div>
+    <div>
+        <label for="birthday2">дата №2</label>
+        <input id="birthday2" type="date" value="">
+    </div>
+    <div>
+        <input type="button" value="Отправить" onclick="send()">
+    </div>
+    <p>Результат:<span id="res2"></span></p>
+    <script>
+        function beginIntro()
+        {
+            //console.log() - функция, которая выводит агрумент(значение в круглых скобках) передаваемый в неё в консоль разработчика
+            //alert() - функция, которая выводит значение аргумента в сплывающем окошке браузера
+            //alert("Hello world, from console JS");
+            //alert("Another message from JS");
+            console.log("Hello world, from console JS");
+            console.log("Another message from JS");
+           
+        }
+   
+        function beginVariables()
+        {
+            const PI = 3.1415; // const - обозначает константовую переменную. Это такая переменная, у которой зхначение задается 1 раз, после переназначить значение нельзя. 
+            // PI = PI + 1; // этот код приведет нас к ошибке
+            console.log(PI);
+            var x = 5; // var - обозначает объявление переменной в не зависимости от области блока
+            let y = 6; // let - обозначает объявление переменной в зависимости от области блока
+            x = x + 1;
+            console.log("x =", x);
+            y = y + 1;
+            console.log("y =", y);
+            {
+                var t = 5;
+                let q = 6;
+            }
+
+            console.log("t =", t); // Этот код не приведет к ошибке, т.к. var игнорирует блоки. Это не очень хорошо
+            //console.log("q =", q); // Этот код приведет к ошибке, т.к. переменная с let существует только внутри блока. Это хорошо
+            exampleVariable:{
+                let m = 15, q = 10; // Это пример множественной инициализации переменных в одну строку. Такие штуки не обязательны, однако упрощают жизнь программисту и называются синтаксический сахар. 
+                m = m + "мама"; // Не смотря на то, что m - число, а "мама" строка, JS просто самостоятельно преобразовал число к строке и "склеил их"(конкатенация)
+                console.log(m);
+                m = 15;
+                m = m + "16";
+                console.log(m);
+            }
+            /*
+            Типы данных в JS:
+            string - строковые данные. Строки - набор символов, можно сказать даже массив
+            number - числовые данных. Это как целочисленные значения, так и дробные(с плавающей запятой)
+            Boolean - тип данных булевый. True или False. Истинно или Ложно. Это результат любой проверки или сравнения в программировании. 
+            object - тип данных описывающий объекты, которые могут состоять из вложенных переменных и функций
+
+            typeof() - функция, которая позволяет понять какой тип данных у переменной.
+            */
+           console.log(typeof(25)); // number
+           console.log(typeof("Мама мыла раму")); // string
+           console.log(typeof(25 > 10)); // boolean
+           console.log(typeof(document)); // object
+           let tmp;
+           let nullVar = undefined;
+           let nanVar = NaN;
+           console.log(tmp);
+           console.log(typeof(nullVar));
+           nullVar = nullVar + 1;
+           console.log(nullVar);
+           console.log(typeof(nullVar));
+           nullVar = undefined;
+           nullVar = nullVar + new Date();
+           console.log(nanVar);
+        }
+        
+
+        function beginOperator()
+        {
+            let x = 10, y = 15;
+            
+            AritmeticOperation:{
+                console.log(x + y);
+                console.log(x - y);
+                console.log(x * y);
+                console.log(x / y);
+                
+                console.log(y % x); // % - Остаток от деления. Полезен для определения четности нечетности числа или его кратности
+                console.log(x ** 2); // ** - Операция возведения в степень.
+            }
+            ComparisonOperation:{
+                console.log(`5 > 3 ${5 > 3}`);
+                console.log("3 < 5", 3 < 5);
+                console.log("5 >= 5", 5 >= 5);
+                console.log("6 <= 6", 6 <= 6);
+                
+                console.log('"мама" == "мама"', 'мама' == 'мама'); // == оператор сравнения. Возвращает true если значения эквивалентны друг другу
+                
+                console.log("15 == '15'", 15 == '15'); // Выдаст true хотя типы данных у них разные
+                console.log("15 === '15", 15 === '15'); // Выдаст false тк. типы данных разные. === - оператор полной проверки равенства в том числе и по типу данных 
+
+                console.log("15 != 10", 15 != 10); // != оператор не равенства. Если значения не эквивалентны друг другу, то возвращает значение true.
+                
+                console.log("15 != '15'", 15 != '15');
+                console.log("15, !== '15'", 15 !== '15');
+            } 
+            CombinationOperation:{
+                let x = 10;
+                console.log(`x += 10 ${x+=10}`); // x = x + 10
+                console.log(`x -= 10 ${x-=10}`); // x = x - 10
+                console.log(`x *= 10 ${x*=10}`); // x = x * 10
+                console.log(`x /= 10 ${x/=10}`); // x = x / 10
+                console.log(`x **= 2 ${x**=2}`); // x = x ** 2; 
+                console.log(`x %= 10 ${x %= 10}`); // x = x % 10;
+            }
+            UnarOperation:{
+                let x = 5;
+                console.log(`x++ ${x++}`); // ++ - инкремент, который увеличивает запись на 1, но делает это в последнюю очередь, если ++ написано после переменной
+                console.log(x); // Наконец, тут стал 6.
+                console.log(`++x ${++x}`); // Тут сразу увеличит на 1 до всех остальных операций. То есть станет 7. Префиксная форма записи называется польской формой.
+                // Аналогично с --. -- Дикремент, котрый уменьшает запись на 1. 
+            }
+        }
+
+        function beginWorkWithString()
+        {
+            let firstName = "Alexey", lastName = "Belousov", date = new Date("10.10.1990");
+            let now = new Date(Date.now()); // Date.now() - получает количество милисекунд с 1.1.1970 года(Время старта unix систем) 
+            console.log(typeof(now));
+            console.log(typeof(date));
+            // \n - перевод строки. Такие символы называются спецсимволами. \t - символ табуляции \r - перевод коретки в начало строки
+            let info = `Name = ${firstName}\nLastName = ${lastName}\nage = ${now.getFullYear() - date.getFullYear()} old`; // Такой способо представления строк, называется f-string Шаблонные строки
+            let info2 = "Name = " + firstName + ", LastName = " + lastName + ", age = " + (now.getFullYear() - date.getFullYear()) + " old"; // В этом примере, вместо f-string мы использовали возможности конкатенации строк, чтобы склеить результаты в одну строку
+            console.log(info);
+            console.log(info2);
+        }
+
+        beginOperator();
+    </script>
+
+    <script>
+        function calc()
+        {
+            let x = parseInt(document.getElementById("oper1").value);
+            let y = parseInt(document.getElementById("oper2").value);
+            let result = 0;
+            let operation = document.getElementById("operation").value;
+            switch(operation){
+                case "Сложить":
+                    result = x + y;
+                    break;
+                case "Вычесть":
+                    result = x - y;
+                    break;
+                case "Умножить":
+                    result = x * y;
+                    break;
+                case "Разделить":
+                    result = x / (y);
+                    break;
+                case "Возвести в степень":
+                    result = x ** y;
+                    break; 
+                case "Корень из первого числа":
+                    result = Math.sqrt(x);
+                    break;  
+                case "Корень из второго числа":
+                    result = Math.sqrt(y);
+                    break;        
+                default:
+                    result = "Error!";
+                    break;
+            }
+
+            if (result % 1 != 0)
+            {
+                result = result.toFixed(2);
+            }
+            document.getElementById('res').innerText = result;
+            function sqrtNewton(n) {
+
+}
+        }
+        
+        function send()
+        {
+            //let firstName = document.getElementById("firstName").value;
+            //let secondName = document.getElementById("lastName").value;
+            let date1 = document.getElementById("birthday1").value;
+            let date2 = document.getElementById("birthday2").value;
+
+            let result = `${Math.floor((new Date(date2)- new Date(date1))/1000/3600/24/30)} мес`;
+            document.getElementById('res2').innerText = result;
+        }
+    </script>
+</body>
+</html>
