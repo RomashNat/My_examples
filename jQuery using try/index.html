@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>  
+</head>
+<body>
+    <style>
+        div {
+            position: absolute;
+            background-color: rgb(88, 238, 133);
+            left: 50px;
+            width: 250px;
+            height: 250px;
+            margin: 5px;
+            margin-top: 5%;
+            border: 10px double black;
+            border-radius: 35%;
+            }    
+        </style>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      </head>
+      <body>
+       
+      <button id="left" style="margin-top: 3%;">Назад</button>
+      <button id="right" style="margin-top: 3%;">Вперед</button>
+      <div class="block"></div>
+    
+      <script>
+      $( "#right" ).click(function() {5
+        $( ".block" ).animate({ "left": "+=100px" }, "fast" );
+      });
+       
+      $( "#left" ).click(function(){
+        $( ".block" ).animate({ "left": "-=100px" }, "fast" );
+      });
+      </script>
+    <script>
+        if (window.jQuery) {
+          var vJq = jQuery.fn.jquery;
+          console.log(vJq);
+        }
+    </script>
+   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+    </body>
+</html>
