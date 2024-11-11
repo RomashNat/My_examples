@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMISE</title>
+</head>
+<body>
+    <script>
+
+     let x = Math.random();
+     console.log("Х = " + x); // смотрим какой Х
+     const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (x > 0.3)
+                resolve("Resolve");
+              else
+                reject(new Error("Что-то пошло не так с х! Х = " + x));
+           }, 5000);
+        });
+
+      
+        promise
+        .then(value => x + Math.random() % 0.3) 
+        .then(new_value => new_value > 0.6 ? console.log("New value is bigger than 0.6 ", new_value) : console.log("This value is smaller than 0,6", new_value)) // условие + вывводим значение
+        .catch( error => console.error("#1 Again error: ", error.message)) //при ошибке выскикивает этот кэтч
+        .catch( value => console.log("#2 Again error: ", value))  //не работает второй кэтч      
+        .finally(() => console.log("This block works ever")); // работает всегда 
+        
+        console.log("This promise is:", promise);
+
+       /* const x = 20;
+        const y = 5;
+        const myPromise = new Promise(function(resolve, reject){
+ 
+        if(y === 0) {
+         console.log("This promise is:", reject);
+
+        }
+        else{
+            const z = x / y;
+            resolve(z);
+            console.log(resolve)
+    }
+});*/
+     
+    
+
+    </script>
+</body>
+</body>
+</html>
