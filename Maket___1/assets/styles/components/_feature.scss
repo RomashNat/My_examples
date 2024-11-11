@@ -1,0 +1,18 @@
+.feature {
+
+    padding-left: 4.1rem;
+    width: 100%;
+    position: relative;
+
+    &__text {
+        @include p1();
+    }
+
+    &::before {
+        content:url(../images/znachok_plyus_t7esrd2y0uqb_32.png);
+        position: absolute;
+        top: 0.3rem;
+        left: 0.5rem;
+        
+    }
+}
