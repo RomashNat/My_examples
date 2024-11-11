@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Часы</title>
+    <style>
+
+        body
+        
+        {
+            margin-left: 30%;
+            padding: 5%;
+        }
+    
+        </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600">
+    </canvas>
+    <script>
+        let canvas = document.getElementById("canvas").getContext("2d");
+        function drawClock()
+        {
+            let time = new Date();
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+             // Нормализация времени, если больше 12
+             hours = hours >= 3 ? hours - 2: hours;
+
+            canvas.save();
+            // Очищаем полотно от того, что было раньше
+            canvas.clearRect(0, 0, 600, 600);
+            // Переместим курсор отрисовки к центру
+            canvas.translate(300, 300);
+            // Уменьшим масштаб отрисовки
+            canvas.scale(1.1, 1.1);
+            // Прокрутим курсор отрисовки на 90 влево
+            canvas.rotate(-Math.PI / 2);
+            // Определяем границу отрисованных элементов
+            canvas.strokeStyle = "grey";
+            // Определяем заливки отрисованных элементов
+            canvas.fill = "white";
+            canvas.lineCap = "round";
+            // Определяем ширину линий
+            canvas.lineWidth = 7;
+
+            
+
+            function aroundClock()
+            {
+                canvas.save();
+                canvas.beginPath();
+                canvas.lineWidth = 20;
+                canvas.strokeStyle = "#66CDAA";
+                canvas.arc(0, 0, 140, 0, Math.PI * 2, true);
+                canvas.stroke();
+                canvas.restore();
+            }
+
+            function drawHours()
+            {
+                canvas.save();
+                for (let i = 1; i <= 12; i++)
+                {
+                    //Начинаем отрисовку фигуры(Используется для фигур с линиями)
+                    canvas.beginPath();
+                    canvas.rotate(Math.PI / 6); // Крутим на следующую риску
+                    canvas.moveTo(100, 0);
+                    canvas.lineTo(120, 0);
+                    canvas.stroke(); // Рисуем заданную фигуру
+                }
+                canvas.restore(); // Востанавливаем значения заданные ранее из стека канваса
+            }
+
+            function drawMinutes()
+            {
+                canvas.save();
+                canvas.lineWidth = 4;
+                for (let i = 0; i < 60; i++)
+                {
+                    if (i % 5 != 0)
+                    {
+                        canvas.beginPath();
+                        canvas.moveTo(110, 0);
+                        canvas.lineTo(120, 0);
+                        canvas.stroke();
+                    }
+                    canvas.rotate(Math.PI / 30);
+                }
+                canvas.restore();
+            }
+
+            
+            function drawArrowSeconds()
+            {
+                canvas.save();
+                canvas.lineWidth = 1;
+                canvas.strokeStyle = "#DD0000";
+                canvas.fillStyle = "#DD0000";
+                canvas.rotate((seconds * Math.PI) / 30);
+                canvas.beginPath();
+                canvas.moveTo(-30, 0);
+                canvas.lineTo(120, 0);
+                canvas.stroke();
+                canvas.restore();
+            }
+
+            
+            function drawArrowMinutes()
+            {
+                canvas.save();
+                canvas.restore();
+                canvas.lineWidth = 3;
+                canvas.strokeStyle = "#66CDAA";
+                canvas.fillStyle = "##66CDAA";
+                canvas.rotate((minutes * Math.PI) / 30);
+                canvas.beginPath();
+                canvas.moveTo(-20, 0);
+                canvas.lineTo(100, 0);
+                canvas.stroke();
+                canvas.restore();
+                canvas.lineCap = "round";
+            }
+
+            function drawArrowHours()
+            {
+                canvas.save();
+                canvas.translate(300, 300);
+                canvas.lineWidth = 7;
+                canvas.strokeStyle = "#006400";
+                canvas.fillStyle = "#006400";
+                canvas.rotate((hours * Math.PI) / 6);
+                canvas.beginPath();
+                canvas.moveTo(-20, 0);
+                canvas.lineTo(70, 0);
+                canvas.stroke();
+                canvas.restore();
+                canvas.lineCap = "round";
+            }
+          
+
+            aroundClock();
+            drawHours();
+            drawMinutes();
+            drawArrowSeconds();
+            drawArrowMinutes();
+            drawArrowHours();
+            canvas.restore();   
+           
+            requestAnimationFrame(drawClock);
+        }
+        requestAnimationFrame(drawClock);
+   </script>
+</body>
+</html>
