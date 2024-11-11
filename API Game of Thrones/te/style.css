@@ -1,0 +1,85 @@
+.card-body
+{
+    padding-bottom: 0.5rem;
+    
+}
+p
+{
+    margin-bottom: 0px;
+}
+.title_alt
+{
+    padding-left: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+h1
+{
+    margin-top:20px;
+    text-align: center;
+    color: brown;
+}
+
+
+.list-group-flush
+{
+    margin-bottom: 0.5rem;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+#test
+{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+.card
+{
+    padding: 0;
+   box-shadow:
+    inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+
+
+}
+
+.card:hover {
+    box-shadow: 10px 15px 20px 10px rgba(158, 98, 133, 0.5); 
+    transform: scale(1.2);
+}
+
+
+.card-img-top
+{
+    height: 16rem;
+    border-radius: 25px;
+}
+#search1 {
+    text-align: center;
+    margin-top: 50px;
+}   
+#test {
+    color: red;
+}
+.btn_active {
+    display:none;
+}
+
+.not_visible{
+    display: none;
+}
+
+button {
+    border: 2px solid #3a7999;
+    border-radius: 5px;
+  }
+  button:hover {
+    box-shadow: #3a7999;
+    border: 1px dotted #76ca81;
+    color: #3a7999;
+    background: #ccc0c7;
+  }
